@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Saeed TestNG Practice Suite">
+  <test verbose="2" name="Saeed TestNG Practice Test"> <!-- verbos means the level if test report details you want on the console -->
+    <classes>
+      <class name="TestNGSessions.DependsOnMethod"/>
+      <class name="TestNGSessions.ExpectedExceptionConcept"/>
+      <class name="TestNGSessions.InvocationCounts"/>
+      <class name="TestNGSessions.LoginTest"/>
+    </classes>
+  </test> 
+</suite> 

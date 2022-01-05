@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- === single test block gives parallel tests run also === -->
+<!-- <suite name="Saeed TestNG Practice Suite">
+  <test verbose="2" name="Saeed TestNG Practice Test">
+    <classes>
+      <class name="com.tests.LoginTest"/>
+      <class name="com.tests.SignUpTest"/>
+    </classes>
+  </test> 
+</suite>  -->
+
+<!-- =============================== -->
+
+<!-- ==== sequential approach for 2 test blocks ===== -->
+<!-- <suite name="Saeed TestNG Practice Suite">
+  <test verbose="2" name="Saeed LoginTest Practice Test">
+    <classes>
+      <class name="com.tests.LoginTest"/>
+    </classes>
+  </test> 
+  <test verbose="2" name="Saeed SignUpTest Practice Test">
+    <classes>
+      <class name="com.tests.SignUpTest"/>
+    </classes>
+  </test> 
+</suite>  -->
+
+<!-- ==== parallel approach ===== parallel mode with cross browser test -->
+<suite name="Saeed TestNG Practice Suite" thread-count="2" parallel="tests"> <!-- thread counts and parallel applies on the tests listed under suit -->
+  <test verbose="2" name="Saeed LoginTest Practice Test" thread-count="3" parallel="methods"> <!-- thread counts and parallel applies on the methods listed under test -->
+    <parameter name="browser" value="chrome"/>
+    <parameter name="url" value="https://accounts.simplilearn.com/user/login"/>
+    <parameter name="username" value="saeedreza.maqsoodi@gmail.com"/>
+    <parameter name="password" value="SudnDevOps@Caltech2020"/>
+    <classes>
+      <class name="com.tests.LoginTest"/>
+      	<!-- <methods>
+      		<exclude name="SignUpLinkTest" />
+      		<exclude name="pageTitleTest" />
+      	</methods> -->
+    </classes>
+  </test> 
+  <test verbose="2" name="Saeed SignUpTest Practice Test" thread-count="2" parallel="methods">
+     <parameter name="browser" value="firefox"/>
+    <parameter name="url" value="https://accounts.simplilearn.com/user/login"/>
+    <classes>
+      <class name="com.tests.SignUpTest"/>
+    </classes>
+  </test> 
+</suite> 
